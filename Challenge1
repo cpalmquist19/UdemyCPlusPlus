@@ -1,0 +1,24 @@
+/*Preprocessor Directives*/
+#include <iostream>
+
+/*Our main function*/
+main() {
+
+    /*Initialize our number variable*/
+    int favNum = 0;
+    
+    /*Wanted to put the question in the input statement but couldn't figure out how to combine them correctly*/
+    std::cout << "Please enter your favorite number (1-100): ";
+    std::cin    >> favNum;
+    
+    std::cout << std::endl << "Amazing!! That's my favoritve number, too!" << std::endl;
+    
+    /*Not sure what the concatenation character is, apparently not '+' or '&'*/
+    std::cout << "No, really!! ";
+    std::cout << favNum;
+    std::cout << " is my favorite number!" << std::endl << std::endl;
+    
+    /*Exit the program with no errors*/
+   return 0;
+    
+}
