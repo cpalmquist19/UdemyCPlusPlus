@@ -1,0 +1,61 @@
+/*
+* Challenge 2
+* Frank's Cleaning Service
+* $25 for a small room
+* $35 for a large room
+* Sales Tax on 7/8/2018 is .0675
+* Estimates are valid for 30 days
+ */
+
+#include <iostream>
+
+// This allows us to not have to type 'std::' in front of cout, cin, etc.
+using namespace std;
+
+int main() {
+    
+    // Declare some constat variables (i.e., the values won't / can't change later)
+    const double smallRoomPrice     {25.00};
+    const double largeRoomPrice     {35.00};
+    const double salesTax                 {.0675};
+    const int estimateExpiry              {30};
+    
+    cout << "Welcome to Frank's Cleaning Service!\n\n";
+    cout << "To receive an estimate, enter the number of rooms to be cleaned for each size.\n\n";
+    
+    int numSmallRooms                   {0};
+    int numLargeRooms                   {0};
+    
+    cout << "Number of small rooms ($" << smallRoomPrice << " each): ";
+    cin >> numSmallRooms;
+    
+    cout << "\nNumber of large rooms ($" << largeRoomPrice << " each): ";
+    cin >> numLargeRooms;
+    
+    double smallRoomTotal {0};
+    double largeRoomTotal {0};
+    
+    smallRoomTotal = smallRoomPrice * numSmallRooms;
+    largeRoomTotal = largeRoomPrice * numLargeRooms;
+    
+    cout << "\n" << "Estimate for " << numSmallRooms << " small room(s) is $" << smallRoomTotal;
+    cout << "\n\n" << "Estimate for " << numLargeRooms << " large room(s) is $" << largeRoomTotal;
+    
+    double estimatedSubTotal       {0};
+    double estimatedSalesTax        {0};
+    double estimatedGrandTotal    {0};
+    
+    estimatedSubTotal = smallRoomTotal + largeRoomTotal;
+    estimatedSalesTax = estimatedSubTotal * salesTax;
+    estimatedGrandTotal = estimatedSubTotal + estimatedSalesTax;
+    
+    cout << "\n\nSub-Total: $" << estimatedSubTotal;
+    cout << "\n\nSales Tax: $" << estimatedSalesTax  << "\n\n";
+    
+    cout << "Estimated Grand Total: $" << estimatedGrandTotal << "\n\n";
+    
+    cout << "Estimates are valid for " << estimateExpiry << " days.\n\n";
+    
+    return 0;
+    
+}
