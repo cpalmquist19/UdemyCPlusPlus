@@ -12,7 +12,7 @@ int main () {
     int cents {0};
     
     cout << "Enter an amount in cents: ";
-    cin     >> cents;
+    cin  >> cents;
     
     int dollars {0};    
     int quarters {0};
