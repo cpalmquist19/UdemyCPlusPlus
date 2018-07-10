@@ -67,4 +67,6 @@ int main () {
     
     // The remaining balance is now 90 MOD 25 which is 15 and we also at the same time have quarters stored as 3 for our count
     
-    // Again, I knew I was doing this not quite correclty. I ended up doing a combination of using MOD but still doing calculation on the balance.
+    // Again, I knew I wasn't doing this in quite the best way.
+    // I ended up doing a combination of using MOD but still doing calculation on the balance.
+    // Good learning exercise
