@@ -48,3 +48,23 @@ int main () {
     return 0;
     
 }
+
+    // Edit
+    // I knew I wasn't quite doing this right, what I should have done instead was something like this:
+  
+    // New variable to track the remaining balance
+    int balance = 0;
+    
+    dollars = cents / 100;      // To get the number of dollars
+    balance = cents % dollars;  // To get the remaining balance
+    
+    // say, we enter 90 cents then 90 / 100 = 0 (.90 but with integer math we just get 0) for our dollar count
+    // balance then equals 90 MOD 100 which is 90 (the value we started with)
+    
+    // From here on out we now use balance instead of cents
+    quarters = balance / 25;    // To get the number of quarters
+    balance %= 25;              // To get the remaining balance
+    
+    // The remaining balance is now 90 MOD 25 which is 15 and we also at the same time have quarters stored as 3 for our count
+    
+    // Again, I knew I was doing this not quite correclty. I ended up doing a combination of using MOD but still doing calculation on the balance.
