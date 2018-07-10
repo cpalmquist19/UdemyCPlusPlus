@@ -1,0 +1,50 @@
+/*
+ * Challenge 4
+ * Find change for a given amount of cents
+ */
+
+#include <iostream>
+
+using namespace std;
+
+int main () {
+    
+    int cents {0};
+    
+    cout << "Enter an amount in cents: ";
+    cin     >> cents;
+    
+    int dollars {0};    
+    int quarters {0};
+    int dimes {0};    
+    int nickels {0};    
+    int pennies {0}; 
+    
+    cout << "\n\nYou can provide this change as follows:\n";
+    
+    dollars = (cents - (cents % 100)) / 100;
+    cents -= dollars * 100;
+    
+    quarters = (cents - (cents % 25)) / 25;
+    cents -= quarters * 25;
+ 
+    dimes = (cents - (cents % 10)) / 10;
+    cents -= dimes * 10; 
+    
+    nickels = (cents - (cents % 5)) / 5;
+    cents -= nickels * 5;
+    
+    pennies = (cents - (cents % 1)) / 1;
+    cents -= pennies * 100;
+    
+    cout << "\n\nDollars:     " << dollars;
+    cout << "\nQuarters:    " << quarters;
+    cout << "\nDimes:       " << dimes;
+    cout << "\nNickels:     " << nickels;
+    cout << "\nPennies:     " << pennies;
+    
+    cout << "\n\n";
+    
+    return 0;
+    
+}
