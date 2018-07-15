@@ -1,0 +1,146 @@
+/*
+ * Section 9 Challenge
+ * 
+ * This challenge is about using a collection (list) of intergers and allowing
+ * the user to select iotuibs from a menu to perform operations on the list.
+ * 
+ * Menu
+ * P - Print the numbers in the list
+ * A - Add a number to the list
+ * M - Display the mean / average of the numbers
+ * S - Display the smallest number
+ * L - Display the largest number
+ * Q - Quit
+ */
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    
+    char menuChoice {};
+    
+    vector<int> numbers {};
+    
+    int numberToAdd {};
+    
+    do {
+        
+        cout << "\n\nMenu\n\n";
+        cout << "P - Print the numbers in the list\n";
+        cout << "A - Add a number to the list\n";
+        cout << "M - Display the mean / average of the numbers\n";
+        cout << "S - Display the smallest number\n";
+        cout << "L - Display the largest number\n";
+        cout << "Q - Quit\n\n";
+        
+        cout << "Please enter an option: ";
+        
+        cin >> menuChoice;
+        
+        if ( menuChoice == 'P' || menuChoice == 'p' ) {
+            
+            cout << "\nPrint the numbers\n";
+            
+           if ( numbers.size() ) {
+               for ( auto number: numbers ) {
+                    cout << number << " ";
+                }
+                cout << "\n";
+           } else {
+                cout << "\nNo numbers added to the list yet!";
+            } 
+           
+        }
+        
+        if ( menuChoice == 'A' || menuChoice == 'a' ) {
+            
+            cout << "\nEnter the number you wanted added to the list: ";
+            
+            cin >> numberToAdd;            
+            numbers.push_back(numberToAdd);
+            
+            cout << "\n" << numberToAdd << " was added to the list\n\n";
+            cout << "The list now contains " << numbers.size() << " number(s)\n";
+            
+        }
+        
+        if ( menuChoice == 'M' || menuChoice == 'm' ) {
+            
+            if ( numbers.size() ) {
+               
+                int runningTotal {0};
+                
+                for ( auto number: numbers ) {                    
+                    runningTotal += number;                    
+                }
+                
+                cout << "\nThe average is " << static_cast<double>(runningTotal) / numbers.size() << ".\n";
+                
+           } else {
+                cout << "\nNo numbers added to the list yet!";
+            } 
+            
+        }
+        
+        if ( menuChoice == 'S' || menuChoice == 's' ) {
+            
+            if ( numbers.size()  > 1 ) {
+                
+                int smallestNumber { numbers.at(0) };
+                
+                for ( auto number: numbers ) {
+                    
+                    if ( number < smallestNumber ) {
+                        cout << "\nchecking\n";
+                        smallestNumber = number;
+                    }
+                    
+                }
+                
+                cout << "The smallest number in the list is " << smallestNumber << "\n";
+                
+            } else if ( numbers.size() == 1 ) {
+                
+                cout << "The smallest number in the list is " << numbers.at(0) << "\n";
+                
+            } else {
+                cout << "\nNo numbers in the list yet.\n";
+            }
+            
+        }
+        
+        if ( menuChoice == 'L' || menuChoice == 'l' ) {
+            
+            if ( numbers.size()  > 1 ) {
+                
+                int largestNumber { numbers.at(0) };
+                
+                for ( auto number: numbers ) {
+                    
+                    if ( number > largestNumber ) {
+                        cout << "\nchecking\n";
+                        largestNumber = number;
+                    }
+                    
+                }
+                
+                cout << "The largest number in the list is " << largestNumber << "\n";
+                
+            } else if ( numbers.size() == 1 ) {
+                
+                cout << "The largest number in the list is " << numbers.at(0) << "\n";
+                
+            } else {
+                cout << "\nNo numbers in the list yet.\n";
+            }
+            
+        }
+        
+    } while ( !(menuChoice == 'q' || menuChoice == 'Q') );
+    
+    return 0;
+    
+}
