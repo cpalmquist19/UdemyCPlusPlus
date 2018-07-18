@@ -1,0 +1,53 @@
+/*
+ *  The goal of this program is to use a simple cipher
+ *  to encode and decode a message entered by the user
+ */
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    
+    string alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    
+    // https://codebeautify.org/reverse-string
+    string cipher = "GHIJKnoPQRSTUdpqrstuVWXYZabcvwxyzABCDEFLefghijklmMNO"; 
+    
+    string userInput {};
+    
+    cout << "\n\nPlease enter your message: ";
+    getline(cin, userInput);
+    
+    cout << "\n\nYour encrypted message is: ";
+    
+    string encryptedMessage {};
+    string decryptedMessage {};
+    
+    for ( auto letter: userInput ) {
+        
+        int position {0};        
+        position = alpha.find(letter);
+        cout << cipher.at(position);        
+        encryptedMessage += cipher.at(position);
+        
+    }
+    
+    cout << "\n\nYour decrypted message is: ";
+    
+    for ( auto letter: encryptedMessage ) {
+    
+        int position {0};
+        position = cipher.find(letter);
+        cout << alpha.at(position);        
+        decryptedMessage += alpha.at(position);
+        
+    }
+    
+    cout << "\n\n";
+    
+    return 0;
+    
+}
