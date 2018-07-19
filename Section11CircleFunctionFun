@@ -1,0 +1,44 @@
+/*
+ * Calculate the area of a circle and the volume of a
+ * cylinder using functions to reduce code reuse
+ */
+
+#include <iostream>
+
+using namespace std;
+
+const double pi {3.14159};
+
+double getRadius() {    
+    double radius {0};
+    cout << "\nWhat is the radius: ";
+    cin >> radius;    
+    return radius;    
+}
+
+double getHeight() {    
+    double height {0};
+    cout << "\nWhat is the height: ";
+    cin >> height;    
+    return height;    
+}
+
+double calculateCircleArea( double radius ) {    
+    double area {0};
+    area = pi * radius * radius;
+    return area;    
+}
+
+double calculateCylinderVolume( double radius, double height ) {
+    double volume = calculateCircleArea( radius ) * height;
+    return volume;
+}
+
+int main () {
+    
+    cout << "The area of your circle is " << calculateCircleArea( getRadius() ) << endl;
+    cout << "The volume of your cylinder is " << calculateCylinderVolume( getRadius(), getHeight() ) << endl << endl;
+    
+    return 0;
+    
+}
